@@ -32,8 +32,6 @@ namespace sensorama10
 
         private long PressureCompensate = 0;
 
-
-
         private I2cDevice BMP180Connection = null;
 
         private byte[] i2cReadBuffer = new byte[3];
@@ -186,7 +184,6 @@ namespace sensorama10
             float temp = BMP180GetTemp(await BMP180ReadUT());
 
             return true;
-
         }
         #endregion BMP180
 
@@ -207,7 +204,6 @@ namespace sensorama10
         private I2cDevice MPU9250Connection = null;
         private I2cDevice MPU9250MagConnection = null;
 
-
         byte MPU9250Read(I2cDevice dev, byte adr)
         {
             byte[] i2cBuffer = new byte[1];
@@ -215,6 +211,7 @@ namespace sensorama10
             dev.Read(i2cBuffer);
             return i2cBuffer[0];
         }
+
         bool MPU9250ReadBytes(I2cDevice dev, byte adr, int num, byte[] data)
         {
             byte[] i2cBuffer = new byte[1];
@@ -310,6 +307,6 @@ namespace sensorama10
             return true; 
         }
 
-#endregion MPU9250
+        #endregion MPU9250
     }
 }
